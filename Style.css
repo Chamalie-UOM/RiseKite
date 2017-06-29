@@ -1,0 +1,27 @@
+form li{
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+label{
+    display: inline;
+}
+
+textarea{
+    width: 300px;
+    height: 200px;
+    margin-left: 100px;
+}
+body{
+    background-color: darkseagreen;
+}
+input{
+    margin-left: 200px;
+}
+select{
+    width: 200px;
+    height: 25px;
+}
+fontC{
+    font color:darkgreen;
+}
