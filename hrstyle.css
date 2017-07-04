@@ -1,0 +1,15 @@
+body { background-color : darkseagreen;}
+.button {
+	
+	text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+	margin :auto;
+	display: block;
+	vertical-align :middle;
+}
+h1 {color:darkolivegreen; }
+textarea { float : right;}
+input {float : center;}
+
