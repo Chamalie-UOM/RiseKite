@@ -1,4 +1,4 @@
-body { background-color : darkseagreen;}
+body { background-color : darkkhaki;}
 .button {
 	
 	text-align: center;
@@ -12,4 +12,9 @@ body { background-color : darkseagreen;}
 h1 {color:darkolivegreen; }
 textarea { float : right;}
 input {float : center;}
+img{ 
+width : 200px;
+height : 150px;
 
+}
+header{ background-color : khaki;}
