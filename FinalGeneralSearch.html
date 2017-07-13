@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> General Search </title>
+<link rel="stylesheet" type="text/css" href="../Css/Style.css">
+</head>
+<body>
+<header>
+<font size="4"><h1 align ="center"> General Search Service<img src ="../Img/army-crest.svg"  alt="army crest" align="middle"></h1></font> 
+</header>
+<br><br>
+<script>
+		function myFunction(val)
+{
+	var txt;
+	var value;
+	if(val=="FullName"){
+	var value = prompt("Enter Full Name:", "Walter Obrian");
+		if(value==null|| value==""){
+			window.alert("Please enter full name");
+		}//else if(////////////////////
+	}else if(val=="ShoeSize"){
+		var value = prompt("Enter Shoe size:", "6");
+   	
+    //var value = prompt("Please enter value:", "11.7");
+	}
+   }
+	</script>
+	<script>
+	function Search{
+///code for what should be done after search button sorting the soldier details according to the input values 
+	
+}</script>	
+<script>
+function add(){
+	//should store each selected criteria with given values or ranges....needed for search function. 	
+}	
+</script>
+<form>
+<fieldset>
+	<legend><font size="5"> General Search</font></legend><br>
+	<strong><label for="Criteria";>Criteria :</label></strong>
+		<select id="Criterias" onchange="myFunction(this.value)"> 
+	  
+		<option value="SoldierId">Soldier Id</option>
+		<option value="FullName">Full Name</option>
+		<option value="Age">Age</option>
+		<option value="ServiceTime">Service Time</option>
+		<option value="Rank">Rank</option>
+		<option value="EduQuali">Educational Qualifications</option>
+		<option value="MilliQuali">Millitary Qualifications</option>
+		<option value="Height">Height</option>
+		<option value="ShoeSize">Shoe Size</option>
+		<option value="Medals">Rank</option>
+    </select>
+	<br><br>
+	<input type="button" onclick="Search()" value="Search">
+
+</fieldset>
+</form>
+</body>
+</html>
