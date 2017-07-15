@@ -1,0 +1,29 @@
+body{
+    background-color: darkkhaki;
+}
+.myfirst3{
+    background-color: khaki;
+    text-align: center;
+}
+img{
+    width: 250px;
+    height: 250px;
+}
+h1{
+    font-size: 40px;
+}
+label{
+    margin-left: 300px;
+    font-size: 25px;
+}
+input1{
+    margin-left: 600px;
+    width: 200px;
+}
+input{
+    height: 50px;
+    font-size: 16px;
+}
+input1{
+    margin-left: 600px;
+}
