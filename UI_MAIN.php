@@ -1,0 +1,23 @@
+<html>
+    <head>
+    <meta charset = "utf-8"/>
+    <link rel = "styleSheet" href="../CSS/style_main.css"><title>Messaging system</title></head>
+    
+    <body>
+    <h1><div class = "myfirst2"><font color = "darkolivegreen"><big>Messaging Service - Sri Lanka Army</big><img src ="army-crest.svg" alt="army crest" align="middle"></font>
+	<br><button2><button type="button" name="logout" onclick="window.location.href='UI_LOGIN.php'">logout</button><button2></div></h1>
+	
+	<form action="UI_MAIN.php" method="get">
+	<fieldset>
+	<legend><font size="5">Menu</font></legend>
+        <input type="button" value= "Create new message" name = "button1" onclick="window.location.href='UI_CREATE_MESSAGE.php'"/>
+        <br><br>
+        <input type="button" value="See older messages" name = "button2" onclick="window.location.href='UI_OLDER_MESSAGE.php'"/>
+		<br><br>
+		<button1>
+		<button type="button" class ="button" onclick ="location.href='UI-level2.html'">Back To Homepage</button></button1>
+		</fieldset>
+		</form>
+    
+    </body>
+</html>
