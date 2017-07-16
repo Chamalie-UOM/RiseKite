@@ -1,26 +1,25 @@
 <?php
 include 'dbQstoreconnect.php';
 
-if(isset($_POST['type'])){
-    $type=$_POST['type'];
-$sql = "SELECT * FROM pol WHERE type='$type'";
+if(isset($_POST['item_code'])){
+    $item_code=$_POST['item_code'];
+$sql = "SELECT * FROM spare_parts WHERE item_code='$item_code'";
 $record1 = mysqli_query($db,$sql);
 while($row = mysqli_fetch_array($record1)){
     
-    $assigned_vehicles=$row['assigned_vehicles'];
 
-    $estimated_consumption=$row['estimated_consumption'];
+    $units_in_stock=$row['units_in_stock'];
+
+    $assigned_total=$row['assigned_total'];
     
     $buffer_level=$row['buffer_level'];
-    
-    $stock_level=$row['stock_level'];
     
    
 }
 ?>
 <head>
   <meta charset="UTF-8">
-  <title>Update POL Information</title>
+  <title>Update Spare Part Information</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
@@ -41,26 +40,24 @@ while($row = mysqli_fetch_array($record1)){
     </head>
 
 
-<form action="updatepol.php" method="post">
+<form action="updatespareparts.php" method="post">
       
-        <h1>Update Petroleum,Oil & Lubricant Information</h1>
+        <h1>Update Spare Parts Information</h1>
         
         <fieldset>
           
-          <input type="hidden" name="type" value="<?=$type;?>">
+          <input type="hidden" name="item_code" value="<?=$item_code;?>">
           
-          <label for="assigned_vehicles">Number of assigned vehicles:</label>
-          <input type="text" id="assignSed_vehicles" name="assigned_vehicles" value="<?=$assigned_vehicles;?>">
+          <label for="units_in_stock">Units in stock:</label>
+          <input type="text" id="units_in_stock" name="units_in_stock" value="<?=$units_in_stock;?>">
           
-          <label for="estimated_consumption">Estimated consumption:</label>
-          <input type="text" id="estimated_consumption" name="estimated_consumption" value="<?=$estimated_consumption;?>">
-          
-          
+          <label for="assigned_total">Total number of items assigned:</label>
+          <input type="text" id="assigned_total" name="assigned_total" value="<?=$assigned_total;?>">
+            
           <label for="buffer_level">Buffer level:</label>
           <input type="text" id="buffer_level" name="buffer_level" value="<?=$buffer_level;?>">
             
-         <label for="stock_level">Stock level:</label>
-          <input type="text" id="stock_level" name="stock_level" value="<?=$stock_level;?>">
+         
         
           
         </fieldset>
