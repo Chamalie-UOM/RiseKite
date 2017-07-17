@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <link rel="styleSheet" href="../CSS_SMS/style_login_page.css">
+    <link rel="styleSheet" href="../CSS_SMS/style_login_p.css">
     <title>Login</title>
     
     </head>
@@ -26,6 +26,8 @@
         </div>
     </form> 
     </body>
+	<br><br><br><br>
+	<footer><font color="aliceblue">&copy; RiseKite2017</font></footer>
 </html>
 
 <?php
@@ -37,7 +39,7 @@ if ((isset($_POST["username"])) && (isset($_POST["password"]))){
 	$username="root";
 	$password="chul@P292";
 	$conn = mysql_connect($serverName,$username,$password) or die($conn_error);
-	@mysql_select_db('messagesdb') or die($conn_error);
+	@mysql_select_db('armydb') or die($conn_error);
 	
 	if (!get_magic_quotes_gpc()){
 		

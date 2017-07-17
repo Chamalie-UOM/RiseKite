@@ -1,7 +1,7 @@
 <html>
     <head>
     <meta charset = "utf-8"/>
-    <link rel = "styleSheet" href="../CSS_SMS/style_older_new.css"><title>Older Messages</title></head>
+    <link rel = "styleSheet" href="../CSS_SMS/style_older_new1.css"><title>Older Messages</title></head>
     
     <body>
         <h1><div class = "myfirst1"><font color = "darkolivegreen"><big>Messaging Service - Sri Lanka Army</big><img src ="army-crest.svg" alt="army crest" align="middle"></font>
@@ -27,7 +27,7 @@
   <option value="Sri Lanka Engineers">Sri Lanka Engineers</option>
 </select>
 <label for="Battalion Group"><second_one><s1>Select the battalion number : </s1></second_one></label>
-<input type="number" name="batNumber" min="1"></p2>
+<input type="number" name="batNumber" min="1" max="23"></p2>
   <br>
 		<input type="submit" name="submit_button" value="Submit" />
         <input type="button" value= "Back" name = "button1" onclick="window.location.href='UI_MAIN.php'"/>
@@ -46,7 +46,7 @@ if (isset($_GET["sent"])){
 	$username="root";
 	$password="chul@P292";
 	$conn = mysql_connect($serverName,$username,$password) or die($conn_error);
-	@mysql_select_db('messagesdb') or die($conn_error);
+	@mysql_select_db('armydb') or die($conn_error);
 	
 	if (!get_magic_quotes_gpc()){
 		
@@ -68,12 +68,12 @@ if (isset($_GET["sent"])){
 	if ($is_query_run=mysql_query($query,$conn)){
 		//echo "query executed<br>";
 		if (($new_num>0) && ("$new_group" != "All Soldiers")){
-			echo '<table border=2px>';
+			echo '<table border=1px>';
 			echo '<th>Message</th><th>Date</th><th>Time</th><th>State</th><th>Message ID</th>';
 			while($row=mysql_fetch_array($is_query_run,MYSQL_ASSOC)){
 				if (($row['Battalion_Number'] == "$new_num")){
 				echo '<tr>';
-				echo '<td>'.$row['Message'].'</td><td>'.$row['Date'].'</td><td>'.$row['Time'].'</td><td>'.$row['State'].'</td><td>'.$row['Message_ID'].'</td>';
+				echo '<td style="width:400px">'.$row['Message'].'</td><td style="width:100px">'.$row['Date'].'</td><td style="width:100px">'.$row['Time'].'</td><td style="width:100px">'.$row['State'].'</td><td>'.$row['Message_ID'].'</td>';
 				echo '</tr>';
 				}
 				else{
@@ -82,12 +82,12 @@ if (isset($_GET["sent"])){
 			}
 		}
 		else if((isset($_GET["batNumber"])) && ("$new_group" == "All Soldiers")){
-			echo '<table border=2px>';
+			echo '<table border=1px>';
 			echo '<th>Message</th><th>Date</th><th>Time</th><th>State</th><th>Message ID</th>';
 			while($row=mysql_fetch_array($is_query_run,MYSQL_ASSOC)){
 			if ($row['Soldier_Group'] == "$new_group"){
 				echo '<tr>';
-				echo '<td>'.$row['Message'].'</td><td>'.$row['Date'].'</td><td>'.$row['Time'].'</td><td>'.$row['State'].'</td><td>'.$row['Message_ID'].'</td>';
+				echo '<td style="width:400px">'.$row['Message'].'</td><td style="width:100px">'.$row['Date'].'</td><td style="width:100px">'.$row['Time'].'</td><td style="width:100px">'.$row['State'].'</td><td>'.$row['Message_ID'].'</td>';
 				echo '</tr>';
 				
 			}
@@ -97,12 +97,12 @@ if (isset($_GET["sent"])){
 			}
 		}
 		else{
-			echo '<table border=2px>';
+			echo '<table border=1px>';
 			echo '<th>Battalion</th><th>Message</th><th>Date</th><th>Time</th><th>State</th><th>Message ID</th>';
 			while($row=mysql_fetch_array($is_query_run,MYSQL_ASSOC)){
 			if ($row['Soldier_Group'] == "$new_group"){
 				echo '<tr>';
-				echo '<td>'.$row['Battalion_Number'].'</td><td>'.$row['Message'].'</td><td>'.$row['Date'].'</td><td>'.$row['Time'].'</td><td>'.$row['State'].'</td><td>'.$row['Message_ID'].'</td>';
+				echo '<td>'.$row['Battalion_Number'].'</td><td style="width:400px">'.$row['Message'].'</td><td style="width:100px">'.$row['Date'].'</td><td style="width:100px">'.$row['Time'].'</td><td style="width:100px">'.$row['State'].'</td><td>'.$row['Message_ID'].'</td>';
 				echo '</tr>';
 			}
 			else{
