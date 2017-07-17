@@ -85,7 +85,7 @@ if (isset($_GET["group"])&&($_GET["message"] != '')){
 	$username="root";
 	$password="chul@P292";
 	$conn = mysql_connect($serverName,$username,$password) or die($conn_error);
-	@mysql_select_db('messagesdb') or die($conn_error);
+	@mysql_select_db('armydb') or die($conn_error);
 	
 	if ($new_bat==NULL){
 		$sql = "INSERT INTO sms(Soldier_Group,Battalion_Number,Message,Date,Time,State) VALUES ('$new_group',0,'$new_message','$date','$time','$state')";

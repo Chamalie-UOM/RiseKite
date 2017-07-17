@@ -109,6 +109,8 @@ return false;
 <body>
 <header>
 <h1 align =center> Registration Form  </h1>
+<button type="button" name="Back" onclick ="window.location.href='hrUI.html'"> Back</button>
+<logout><a href="../SMS/UI_LOGIN.php">Logout</a><logout>
 </header>
 <br>
 <form  action="addEntry.php" method="POST">

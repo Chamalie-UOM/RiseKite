@@ -2,6 +2,7 @@
 <body>
 <header>
 <h1 align= "center" > Human Resources Management <img src ="armyCrest.svg" alt="army crest" align="middle"></h1>
+<logout><a href="../SMS/UI_LOGIN.php">Logout<logout></a>
 </header></body>
 <?php include 'dbCon.php';
 //validate date

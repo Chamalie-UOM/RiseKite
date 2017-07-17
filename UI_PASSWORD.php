@@ -56,7 +56,7 @@ if ((isset($_POST['username'])) && (isset($_POST['password1'])) && (isset($_POST
 	$username="root";
 	$password="chul@P292";
 	$conn = mysql_connect($serverName,$username,$password) or die($conn_error);
-	@mysql_select_db('messagesdb') or die($conn_error);
+	@mysql_select_db('armydb') or die($conn_error);
 	
 	echo "<br>";
 	//echo "connected<br>";

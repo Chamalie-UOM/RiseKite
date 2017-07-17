@@ -12,7 +12,7 @@
 <fieldset>
 <legend><font size="5"> Menu</font></legend>
 <br>
-<button type="button" onclick ="location.href='hrUI.html'" class ="button" > Human Resource Management </button> <br><br>
+<button type="button" onclick ="location.href='../hrPHP/hrUI.html'" class ="button" > Human Resource Management </button> <br><br>
 <select name="search" onchange= "window.location.href= this.value">
   <option> </option>
   <option value="NormalSearch.html">General Search</option>
