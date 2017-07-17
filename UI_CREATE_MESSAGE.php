@@ -1,28 +1,38 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="Style_create.css">
+    <link rel="stylesheet" href="../CSS_SMS/style_create_1.css">
     <title>Sending Messages</title>
 </head>
 <body>
+    <h1><div class = "myfirst"><font color = "darkolivegreen"><big>Messaging Service - Sri Lanka Army</big><img src ="army-crest.svg" alt="army crest" align="middle"></font>
+	<br><button2><a href="UI_LOGIN.php"><font size="3">Logout</font></a><button2></div></h1>
 
-        <h1><div class = "myfirst"><br><font color = "darkolivegreen"><big>Messaging Service - Sri Lanka Army</big></font></div></h1>
-		<br><br>
-    
-    
-    
 <form action="UI_CREATE_MESSAGE.php" method="get">
-    <p>
-    <label for="Soldier Group"><second>Select the group : </second></label>
+<fieldset>
+<legend><font size="5">Create New Message</font></legend>
+    <p><p1>
+    <label for="Soldier Group"><second>Select the regiment : </second></label></p1>
     <select name="group">
   <option value="All Soldiers">All Soldiers</option>
-  <option value="Group A">Group A</option>
-  <option value="Group B">Group B</option>
-  <option value="Group C">Group C</option>
-</select><br><br><br><br>
+  <option value="Sri Lanka Armoured Corps">Sri Lanka Armoured Corps</option>
+  <option value="Sri Lanka Light Infantry">Sri Lanka Light Infantry</option>
+  <option value="Sri Lanka Sinha Regiment">Sri Lanka Sinha Regiment</option>
+  <option value="Sri Lanka Vijayabahu Infantry Regiment">Sri Lanka Vijayabahu Infantry Regiment</option>
+  <option value="Gemunu Watch">Gemunu Watch</option>
+  <option value="Gajaba Regiment">Gajaba Regiment</option>
+  <option value="Mechanized Infantry Regiment">Mechanized Infantry Regiment</option>
+  <option value="Commando Regiment">Commando Regiment</option>
+  <option value="Special Forces Regiment">Special Forces Regiment</option>
+  <option value="Sri Lanka Artillery Regiment">Sri Lanka Artillery Regiment</option>
+  <option value="Sri Lanka Engineers">Sri Lanka Engineers</option>
+</select>
+<p2>
+<label for="Battalion Group"><second>Select the battalion number : </second></label>
+<input type="number" name="batNumber" min="1"></p2>
 </p>
-<p>
-    <label for="Message"><second>Create the message here</second></label>
+<p><br>
+    <p1><label for="Message">Create the message here</label></p1>
     </p>
     <p>
     <textarea id="message" name="message"></textarea>
@@ -35,6 +45,7 @@
         <input type="submit" value="Send For Approval" /></button_align2>
         </formatting>
     </p>
+	</fieldset>
     </form>
     </body>
 </html>
@@ -49,6 +60,11 @@ if (isset($_GET["group"])&&($_GET["message"] != '')){
 	echo $_GET["message"];
 	echo "<br>";
 	
+	include "settingData.php";
+	echo "Battalion: ";
+	echo $new_bat;
+	echo "<br>";
+	
 	date_default_timezone_set('Asia/Colombo');
 	//$timezone = date_default_timezone_get();
 	//echo $timezone;
@@ -61,8 +77,6 @@ if (isset($_GET["group"])&&($_GET["message"] != '')){
 	echo "<br>";
     $state = "Not sent";
     
-    include "settingData.php";
-    
     echo "<br>";
 	
 	$conn_error = "could not connect";
@@ -73,19 +87,22 @@ if (isset($_GET["group"])&&($_GET["message"] != '')){
 	$conn = mysql_connect($serverName,$username,$password) or die($conn_error);
 	@mysql_select_db('messagesdb') or die($conn_error);
 	
-	
-	$sql = "INSERT INTO sms(Soldier_Group,Message,Date,Time,State) VALUES ('$new_group','$new_message','$date','$time','$state')";
-	
-	if (mysql_query($sql,$conn)){
-		echo "Successfully saved";
+	if ($new_bat==NULL){
+		$sql = "INSERT INTO sms(Soldier_Group,Battalion_Number,Message,Date,Time,State) VALUES ('$new_group',0,'$new_message','$date','$time','$state')";
 	}
 	else{
-		echo "Error";
+		$sql = "INSERT INTO sms(Soldier_Group,Battalion_Number,Message,Date,Time,State) VALUES ('$new_group',$new_bat,'$new_message','$date','$time','$state')";
+	}
+	if (mysql_query($sql,$conn)){
+		//echo "Successfully saved";
+	}
+	else{
+		//echo "Error";
 	}
     
     $numberQuery = "SELECT * FROM sms";
     if ($is_query_run4=mysql_query($numberQuery,$conn)){
-		echo "query executed<br>";
+		//echo "query executed<br>";
 		while($row=mysql_fetch_array($is_query_run4,MYSQL_ASSOC)){
 			if ($row['Date']== $date && $row['Time']== $time){
                 $messageIDnum = $row['Message_ID'];
@@ -95,10 +112,10 @@ if (isset($_GET["group"])&&($_GET["message"] != '')){
 		}
 	}
 	else{
-		echo 'error executing';
+		//echo 'error executing';
 	}
-	echo "<br>";
-	echo "connected";
+	//echo "<br>";
+	//echo "connected";
 	mysql_close($conn);
     
     
@@ -118,32 +135,35 @@ if (isset($_GET["group"])&&($_GET["message"] != '')){
     $mail->Port = 587;
     $mail->Encoding = '7bit';       // SMS uses 7-bit encoding
     
-    $see="Here is the message for confirmation: "."$new_message"." for : "."$new_group"."  Message ID is: ".$messageIDnum;
-    $mail->IsHTML(true);
+	if ($new_bat == 0){
+    $see="Here is the message for confirmation: "."$new_message"."<br>"." for : "."$new_group"."<br>"."Battalion: All battalions"."<br>"."Message ID is: ".$messageIDnum;
+    }
+	else{
+		$see="Here is the message for confirmation: "."$new_message"."<br>"." for : "."$new_group"."<br>"."Battalion: "."$new_bat"."<br>"."Message ID is: ".$messageIDnum;
+	}
+	
+	$mail->IsHTML(true);
     $mail->MsgHTML(file_get_contents('UI_CONFIRM.html')."$see");
 
     // Authentication
-    $mail->Username   = "chulanikarandana@gmail.com"; // Login
-    $mail->Password   = "chula1230"; // PasswordS
+    $mail->Username   = "chulanilakmali1230@gmail.com"; // Login
+    $mail->Password   = "lakmali1995"; // Password
     
 
     // Compose
     $mail->Subject = "Requesting confirmation";     // Subject
-    
-    //$message = '<a href="https://drive.google.com/open?id=0B_72R2jyUdi8dWE1T3pBSUh3V2s">Visit our HTML tutorial</a>';
-    
-    //$mail->Body = "Here is the message for confirmation: "."$new_message"."for: "."$new_group"."$message";        // Body of our message
+
     $mail->SetFrom("chulanikarandana@gmail.com","Chulani@UoM");
 
     // Send To
-    $mail->AddAddress( "chulanilakmali1230@gmail.com" ); // Where to send it
+    $mail->AddAddress( "chulanilakmalikarandana@gmail.com" ); // Where to send it
     var_dump( $mail->send() );      // Send!
     
     
 }
 else{
     echo '<this>';
-	echo "Please fill all the fields and submit";
+	echo "Please enter the message and submit";
     echo '</this>';
 }
 ?>

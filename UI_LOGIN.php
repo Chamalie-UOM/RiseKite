@@ -1,17 +1,13 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <link rel="styleSheet" href="Style_login.css">
+    <link rel="styleSheet" href="../CSS_SMS/style_login_page.css">
     <title>Login</title>
-    </head>
-<body>
-    <form action="UI_LOGIN.php" method="get">
-    <div class="myClass"><br>
-    <img src="download.png" alt="logo"/>
-    <fontx><h1 align="center"><font color="darkolivegreen">Sri Lanka Army</font></h1>
-    </fontx>
     
-    </div>
+    </head>
+ <body>
+    <div class="myClass"><font size="5" color="darkolivegreen"><h1 align ="center"> Sri Lanka Army<img src ="army-crest.svg" alt="army crest" align="middle"></h1></font></div>
+    <form action="UI_LOGIN.php" method="post">
     <div class="myClass2">
     <fieldset>
     <legend><h2><big>Login</big></h2></legend>
@@ -24,7 +20,7 @@
     <input type="password" name="password"/>
     </p>
     <p>
-    <input type="submit" value="login"/>
+    <input type="submit" value="Login"/>
     </p>       
      </fieldset> 
         </div>
@@ -34,7 +30,7 @@
 
 <?php
 
-if ((isset($_GET["username"])) && (isset($_GET["password"]))){
+if ((isset($_POST["username"])) && (isset($_POST["password"]))){
 	$conn_error = "could not connect";
 
 	$serverName = "localhost";
@@ -45,26 +41,37 @@ if ((isset($_GET["username"])) && (isset($_GET["password"]))){
 	
 	if (!get_magic_quotes_gpc()){
 		
-		$new_username = addslashes($_GET["username"]);
-        $new_password = addslashes($_GET["password"]);
+		$new_username = addslashes($_POST["username"]);
+        $new_password = addslashes($_POST["password"]);
 	}
 	else{
-		$new_username = $_GET["username"];
-        $new_password = $_GET["password"];
+		$new_username = $_POST["username"];
+        $new_password = $_POST["password"];
 	}
 	echo "<br>";
 	
-	
+	session_start();
 	$query="SELECT * FROM users WHERE User_Name='".$new_username."'";
 	if ($is_query_run=mysql_query($query,$conn)){
 		while($row=mysql_fetch_array($is_query_run,MYSQL_ASSOC)){
 			if ($new_password == $row['Password']){
-                echo "Logged in successfully";
-                exec("UI_CONFIRM.html");
+				$new_type = $row['User_Type'];
+				if ("$new_type" == "level_1_officer"){
+					$_SESSION['UserType'] = "level_1_officer";
+					header("location: UI_LEVEL1.php");
+				}
+				else if ("$new_type" == "level_2_officer"){
+					$_SESSION['UserType'] = "level_2_officer";
+					header("location: UI_LEVEL2.php");
+				}
+				else{
+					$_SESSION['UserType'] = "inventory_manager";
+					header("location: indexinv.php");
+					}
 
             }
             else{
-                echo "There is an error in username or password";
+				echo "There is an error in username or password";
             }
 		}
 	}
