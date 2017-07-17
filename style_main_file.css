@@ -1,0 +1,31 @@
+body{
+    background-color:darkkhaki;
+}
+input{
+    width: 200px;
+    height: 100px;
+    margin-left: 350px;
+	font-size: 16px;
+}
+new{
+    margin-top: 200px; 
+}
+.myfirst2{
+    background-color: khaki;
+    text-align: center;
+}
+h1{
+    font-size: 40px;
+}
+img{
+    width: 175px;
+    height: 175px;
+}
+button2{
+	margin-left:1290px;
+	
+}
+fieldset{
+	margin-left: 200px;
+	margin-right: 200px;
+}
