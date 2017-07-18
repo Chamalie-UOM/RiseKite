@@ -10,12 +10,35 @@ body { background-color : darkkhaki;}
 	vertical-align :middle;
 }
 h1 {color:darkolivegreen;}
-textarea { float : right;}
-input {float : right;}
+
+
+
 img{ 
 width : 200px;
 height : 150px;
 
 }
-header{ background-color : khaki;}
+
+
+header{ background-color : darkkhaki;}
+
+label{
+	width:180px;
+	clear:left;
+	text-align:left;
+	padding-right: 260px;
+}
+input,label{
+	float: left;
+}
+
+select{
+	position: relative;
+}
+input[type="radio"]{
+	margin : 0 10px 0 10px
+}
+login{
+	margin-left: 1285px
+}
 

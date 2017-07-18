@@ -1,0 +1,19 @@
+.first{
+    background-color: beige;
+    width: auto;
+    height: 150px;
+}
+body{
+    background-color:darkseagreen;
+}
+font{
+    margin-left: 300px;
+}
+input{
+    width: 200px;
+    height: 100px;
+    margin-left: 500px;
+}
+new{
+    margin-top: 200px; 
+}
