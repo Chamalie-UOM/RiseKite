@@ -34,7 +34,7 @@ if (isset($_GET["MessageID"]) && ($_GET["MessageID"] != null) && ($_GET["Message
 	$username="root";
 	$password="chul@P292";
 	$conn = mysql_connect($serverName,$username,$password) or die($conn_error);
-	@mysql_select_db('messagesdb') or die($conn_error);
+	@mysql_select_db('armydb') or die($conn_error);
 	
 	//echo "<br>";
 	//echo "connected<br>";
@@ -91,12 +91,15 @@ else{
 			while($row1=mysql_fetch_array($is_query_run_a,MYSQL_ASSOC)){
 				$phone=$row1['tpNum'];
 				$sms_send=$message_to_send;
-				echo $phone;
+				//echo $phone;
 				include 'run_api.php';
 		}
 		}
 		}
-		echo "Message is successfully sent for all soldiers";
+		echo '<script language="javascript">';
+		echo 'alert("Message is successfully sent for all soldiers")';  //showing an alert box.
+		echo '</script>';
+		//echo "Message is successfully sent for all soldiers";
 		}
 		else{
 			//echo 'error executing1';
@@ -115,12 +118,15 @@ else{
 			while($row1=mysql_fetch_array($is_query_run_a,MYSQL_ASSOC)){
 				$phone=$row1['tpNum'];
 				$sms_send=$message_to_send;
-				echo $phone;
+				//echo $phone;
 				include 'run_api.php';
 		}
 		}
 		}
-		echo "Message is successfully sent to soldiers in "."$group_to_send"." for all soldiers";
+		echo '<script language="javascript">';
+		echo 'alert("Message is successfully sent for soldiers)';  //showing an alert box.
+		echo '</script>';
+		//echo "Message is successfully sent to soldiers in "."$group_to_send"." for all soldiers";
 		}
 		else{
 			//echo 'error executing2';
@@ -138,12 +144,15 @@ else{
 			while($row1=mysql_fetch_array($is_query_run_a,MYSQL_ASSOC)){
 				$phone=$row1['tpNum'];
 				$sms_send=$message_to_send;
-				echo $phone;
+				//echo $phone;
 				include 'run_api.php';
 		}
 		}
 		}
-		echo "Message is successfully sent to soldiers in "."$group_to_send"." for battalion No:".$battalion_to_send;
+		echo '<script language="javascript">';
+		echo 'alert("Message is successfully sent for soldiers")';  //showing an alert box.
+		echo '</script>';
+		//echo "Message is successfully sent to soldiers in "."$group_to_send"." for battalion No:".$battalion_to_send;
 		}
 		else{
 			//echo 'error executing3';

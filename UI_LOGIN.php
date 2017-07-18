@@ -44,15 +44,17 @@ if ((isset($_POST["username"])) && (isset($_POST["password"]))){
 	if (!get_magic_quotes_gpc()){
 		
 		$new_username = addslashes($_POST["username"]);
-        $new_password = addslashes($_POST["password"]);
+        $new_password1 = addslashes($_POST["password"]);
 	}
 	else{
 		$new_username = $_POST["username"];
-        $new_password = $_POST["password"];
+        $new_password1 = $_POST["password"];
 	}
 	echo "<br>";
 	
+	$new_password = md5($new_password1);
 	session_start();
+	$_SESSION['user']=$new_username;
 	$query="SELECT * FROM users WHERE User_Name='".$new_username."'";
 	if ($is_query_run=mysql_query($query,$conn)){
 		while($row=mysql_fetch_array($is_query_run,MYSQL_ASSOC)){
@@ -68,7 +70,7 @@ if ((isset($_POST["username"])) && (isset($_POST["password"]))){
 				}
 				else{
 					$_SESSION['UserType'] = "inventory_manager";
-					header("location: indexinv.php");
+					header("location: inventoryUI.php");
 					}
 
             }
