@@ -2,13 +2,18 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Search Ammunation</title>
+  <title>Sign Up</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
   
       <link rel="stylesheet" href="css/style.css">
 
+  
+</head>
+
+<body>
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sign Up Form</title>
@@ -18,24 +23,37 @@
     </head>
     <body>
 
-      <form action='modifyammunation.php' method="post">
+      <form action="addpersonalb1.php" method="post">
       
-        <h1>Search Ammunation Information</h1>
+        <h1>Add new personal belonging entry</h1>
         
         <fieldset>
           
-
-
-          <input type="text" id="item_code" placeholder="Enter Item Code" name="item_code" maxlength="8">
-
+          <label>Item Name:</label>
+          <input type="text" id="name" name="name">
             
+          
+          <label>Units in stock:</label>
+          <input type="text" id="units_in_stock" name="units_in_stock">
+            
+          <label>Units in use:</label>
+          <input type="text" id="units_in_use" name="units_in_use">
+          
+       
+          <label>Item description:</label>
+          
+          <textarea id="description" name="item_des"></textarea>
         </fieldset>
         
-        <button type="submit">Search</button>
+        <button type="submit">Add Entry</button>
       </form>
       
     </body>
 </html>
   
   
+<?php
+include "AddPersonalb.php";
 
+?>
+  

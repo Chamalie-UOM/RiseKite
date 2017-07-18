@@ -68,7 +68,7 @@
           <input type="radio" id="Manual" value="Manual" name="transmission"><label for="Manual" class="light">Manual</label>
           
         </fieldset>
-        <button type="submit">Add Entry</button>
+        <button type="submit" name='submit'>Add Entry</button>
       </form>
       
     </body>
@@ -76,6 +76,7 @@
   
   
 <?php
+    
 include "AddVehicle.php";
 
 ?>

@@ -2,7 +2,10 @@
 include 'dbQstoreconnect.php';
 
 
+
+
 if (!empty($_POST['item_code'])&&!empty($_POST['units_in_stock'])&&!empty($_POST['units_in_use'])&&!empty($_POST['buffer_level'])&&!empty($_POST['description'])){
+
     
      $item_code=$_POST['item_code'];
 
@@ -14,6 +17,12 @@ if (!empty($_POST['item_code'])&&!empty($_POST['units_in_stock'])&&!empty($_POST
     
     $description=$_POST['description'];
     
+
+}
+    
+   
+
+
     if(strlen($item_code)<'4'){
     echo "<script>alert('Item code is invalid')</script>";
     echo "<script>window.open('modifyammunation.php','_self')</script>";
@@ -36,4 +45,5 @@ else {
 }
     
     
+
 ?>

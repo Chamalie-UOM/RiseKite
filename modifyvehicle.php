@@ -26,7 +26,7 @@ while($row = mysqli_fetch_array($record1)){
 ?>
 <head>
   <meta charset="UTF-8">
-  <title>Sign Up</title>
+  <title>Update Vehicle Information</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 

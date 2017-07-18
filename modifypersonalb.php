@@ -1,9 +1,9 @@
 <?php
 include 'dbQstoreconnect.php';
 
-if(isset($_POST['item_code'])){
-    $item_code=$_POST['item_code'];
-$sql = "SELECT * FROM ammunation WHERE item_code='$item_code'";
+if(isset($_POST['item_name'])){
+    $item_name=$_POST['item_name'];
+$sql = "SELECT * FROM personalbelongings WHERE item_name='$item_name'";
 $record1 = mysqli_query($db,$sql);
 while($row = mysqli_fetch_array($record1)){
     
@@ -14,15 +14,13 @@ while($row = mysqli_fetch_array($record1)){
 
     $units_in_use=$row['units_in_use'];
     
-    $buffer_level=$row['buffer_level'];
-    
-    $description=$row['description'];
+      $description=$row['description'];
    
 }
 ?>
 <head>
   <meta charset="UTF-8">
-  <title>Update Ammunation Information</title>
+  <title>Update Personal Belongings Information</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
@@ -43,35 +41,24 @@ while($row = mysqli_fetch_array($record1)){
     </head>
 
 
-<form action="updateammunation.php" method="post">
+<form action="updatepersonalb.php" method="post">
       
-        <h1>Update Ammunation Information</h1>
+        <h1>Update Personal Belongings Information</h1>
         
         <fieldset>
           
-          <input type="hidden" id="item_code" name="item_code" value="<?=$item_code;?>">
+          <input type="hidden" id="item_name" name="item_name" value="<?=$item_name;?>">
             
-
-                    <label>Units in stock:</label>
-  
-
-          <input type="text" id="units_in_stock" name="units_in_stock" min="0" max="99999" value="<?=$units_in_stock;?>">
-
+            <label>Units in stock:</label>
+          <input type="text" id="units_in_use" name="units_in_stock" value="<?=$units_in_stock;?>">
           
        
           
           <label>Units in use:</label>
-
-         
-
-          <input type="text" id="units_in_use" name="units_in_use" min="0" max="99999" value="<?=$units_in_use;?>">
-          
-            <label>Buffer Level:</label>
-          <input type="text" id="buffer_level" name="buffer_level" min="0" max="99999" value="<?=$buffer_level;?>">
+          <input type="text" id="units_in_use" name="units_in_use" value="<?=$units_in_use;?>">
           
             <label>Description:</label>
-          <input type="text" id="description" name="description" maxlength="100" value="<?=$description;?>">
-
+          <input type="text" id="description" name="description" value="<?=$description;?>">
           
        
         </fieldset>
