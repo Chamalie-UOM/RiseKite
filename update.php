@@ -2,7 +2,7 @@
 <body>
 <header>
 <h1 align= "center" > Human Resources Management <img src ="armyCrest.svg" alt="army crest" align="middle"></h1>
-<logout><button type="button" name="logout" onclick="">Logout </button><logout>
+<logout><a href="../SMS/UI_LOGIN.php">Logout</a><logout>
 </header></body>
 <?php
 include "dbcon.php";
