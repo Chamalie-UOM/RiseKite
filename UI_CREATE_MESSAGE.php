@@ -28,8 +28,8 @@
   <option value="Sri Lanka Engineers">Sri Lanka Engineers</option>
 </select>
 <p2>
-<label for="Battalion Group"><second>Select the battalion number : </second></label>
-<input type="number" name="batNumber" min="1" max="23"></p2>
+<label for="Battalion Group"><second>Select the battalion number : </second></label
+  <input type="number" name="batNumber" min="1" max="23"></p>
 </p>
 <p><br>
     <p1><label for="Message">Create the message here</label></p1>
