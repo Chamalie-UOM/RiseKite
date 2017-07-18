@@ -137,6 +137,7 @@ return false;
 	<label> Telephone Number<br>(start with 94 instead of 0):  </label> <input type="text" name="tpNum"><br>
 
 
+
     </fieldset><br>
 	<fieldset>
 	<legend> <font size='5'> Educational Qualifications</font></legend>
@@ -144,15 +145,18 @@ return false;
     <label> A/L Results: </label> <textarea name= "alResults" rows="1" cols="100" ></textarea> <br><br>
 
 
+
 	<label> English Fluency: </label> <select name="engFluency">
 	<option value="Professional proficiency">Professional proficiency</option>
     <option value="General proficiency">General proficiency</option></select><br><br>
+
 
 
 	</fieldset><br>
 	<fieldset>
 	<legend> <font size='5'> Military Information </font></legend>
 	<label>Date of Enlistment:  </label><input type="date" name="DOE" ><br><br>
+
 
 	<label> Regiment Name:  </label> <select name="regiment">
 	<option value="Sri Lanka Armoured Corps">Sri Lanka Armoured Corps</option>
@@ -173,8 +177,8 @@ return false;
 	</fieldset><br>
   <input type="submit" value="Submit" >
 
+
 </form>
 
  </body>
  </html>
-

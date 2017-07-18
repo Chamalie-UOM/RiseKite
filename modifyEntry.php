@@ -1,4 +1,5 @@
 
+
 <head><link rel="stylesheet" type="text/css" href="../hr/styleshr.css"></head>
 
 
@@ -17,6 +18,7 @@ if(!empty($_POST['SoldierId'])){
 	if(!mysqli_num_rows($query)==0){
 
 
+
 	$sql = "SELECT * FROM personalInfo WHERE id='$id'";
 	$record1=mysqli_query($link,$sql);
 	$edu ="SELECT * FROM edQualifications WHERE id='$id'";
@@ -29,7 +31,9 @@ if(!empty($_POST['SoldierId'])){
         $lastName = $row['lastName'];
         $DOB = $row['DOB'];
         $Gender = $row['gender'];
+
 		$age= $row['age'];
+
 		$marital = $row['marital'];
 		$height = $row['height'];
 		$weight = $row['weight'];
@@ -49,12 +53,15 @@ if(!empty($_POST['SoldierId'])){
 		$DOE = $row3['DOE'];
         $regiment = $row3['regiment'];
         $batNum = $row3['batNum'];
+
 		$rank = $row3['rank'];
+
 	}
 ?>
 
 <form action="update.php" method="post">
 <input type="hidden" name="ID" value="<?=$id;?>">
+
 <fieldset>
 <legend>Personal Information</legend> 
 First Name: <input type="text" name="firstName" value="<?=$firstName?>"><br>
@@ -98,6 +105,7 @@ Rank: <input type="number" name="rank" value="<?=$rank?>" min="1"><br>
 <?php
 
 	}else{ echo "ID does not exist.";}
+
 
 }else{
     echo 'No entry found.';

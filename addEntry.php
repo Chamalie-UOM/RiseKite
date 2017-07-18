@@ -1,5 +1,6 @@
 
 
+
 <head><link rel="stylesheet" type="text/css" href="../hr/styleshr.css"></head>
 <body>
 <header>
@@ -253,5 +254,6 @@ if(mysqli_affected_rows($link) > 0){
 }
 
 				
+
 
 ?>

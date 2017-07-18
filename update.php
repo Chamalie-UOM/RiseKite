@@ -1,5 +1,6 @@
 
 
+
 <head><link rel="stylesheet" type="text/css" href="../hr/styleshr.css"></head>
 <body>
 <header>
@@ -8,6 +9,7 @@
 
 
 </header></body>
+
 <?php
 include "dbcon.php";
 if(isset($_POST['Submit'])){
@@ -15,7 +17,9 @@ if(isset($_POST['Submit'])){
 	
 //personal info	
 
+
 /*if(isset($_POST['firstName'])){
+
 
 
 $first_name=$_POST['firstName'];
@@ -29,9 +33,11 @@ $DOB=$_POST['DOB'];
 if(isset($_POST['gender'])){
 $gender=$_POST['gender'];
 }
+
 if(isset($_POST['age'])){
 $age=$_POST['age'];
 }
+
 if(isset($_POST['marital'])){
 $marital=$_POST['marital'];
 }
@@ -64,6 +70,7 @@ $regiment=$_POST['regiment'];
 if(isset($_POST['batNum'])){
 $batNum=$_POST['batNum'];
 }
+
 if(isset($_POST['rank'])){
 $rank=$_POST['rank'];
 
@@ -290,4 +297,5 @@ echo "<a href='modifySoldier.html'> Go Back</a>" ;
 }
 
 ?>
+
 
