@@ -7,7 +7,7 @@
   <link rel="stylesheet">
 
   
-      <link rel="stylesheet" href="../Css/SearchBox.css">
+      <link rel="stylesheet" href="../FinalCss/SearchBox.css">
 <header>
 <font size="4"><h1 align ="center"> Advance Search Service<img src ="../Img/army-crest.svg"  alt="army crest" align="middle"></h1></font> 
 </header>
@@ -16,7 +16,7 @@
 
 <body>
 
-      <form action='' method="POST">
+      <form action='SportsResult.php' method="POST">
       
         <h2>Sports Selection</h2>
         
@@ -52,7 +52,7 @@
 			</select>
           
           <label for="height">Height_in_cm(above):</label>
-          <input type="number" id="height" name="Height" min=0>
+          <input type="number" id="height" name="Height" min=100 max=250>
           
           <label>Range for Weight:</label>
           <input type="radio" id="greater_than" value="greater_than" name="Range"><label for="greater_than" class="light">above</label><br>
@@ -75,113 +75,11 @@
         
         
           
-		  <button type="submit" name="Search"  value="Search" onclick="Sports.php"> Advance Search</button>
+		  <button type="submit" name="Search"  value="Search" > Advance Search</button>
       </form>
       
     
 	</body>
 </html>
-<?php include "ConnectDatabase.php";
-if(isset($_POST['Search'])){
-	if(empty($_POST['Height'])){
-	echo"Plese enter height";
-	
-	}else if(empty($_POST['Weight'])){
-	echo"Plese enter weight";
-	
-	
-	}else if(isset($_POST['Range'])==null){
-		echo"You should select the range for weight !!";
-	}else if(isset($_POST['Range1'])==null){
-		echo"You should select the range for Age !!";
-	}else if(empty($_POST['Age'])){
-		echo"Plese enter age !!";
-	}else{
-	$count=0;
-	$gender = $_POST['Gender'];
-	$height = $_POST['Height'];
-	$weight = $_POST['Weight'];
-	$range = $_POST['Range'];
-	$range1 = $_POST['Range1'];
-	$age = $_POST['Age'];
-	$regiment = $_POST['regiment'];
-	$array1=array();
-	$array2=array();
-	$array3=array();
-	$array4=array();
-		
-		
-		if($gender=="both"){
-		$sql1 = "SELECT *  FROM personalinfo WHERE  height > $height  " ;
-		
-		}else{
-		$sql1 = "SELECT *  FROM personalinfo WHERE gender = '".$gender."' AND height > $height  " ;
-		}
-		if($is_query_run=mysql_query($sql1,$db)){
-		
-    
-   		while($row = mysql_fetch_array($is_query_run,MYSQL_ASSOC)) {
-			array_push($array1,$row['id']);
-			
-			
-		}}
-		
-		if($range=="greater_than"){
-		$sql2 = "SELECT *  FROM personalinfo WHERE `weight` > $weight ";
-		}else if($range=="less_than"){
-		$sql2 = "SELECT *  FROM personalinfo WHERE `weight` < $weight ";	
-		}else if($range=="equal"){
-		$sql2 = "SELECT *  FROM personalinfo WHERE `weight` = $weight ";		
-		}
-		if($is_query_run=mysql_query($sql2,$db)){
-		
-    
-   		while($row = mysql_fetch_array($is_query_run,MYSQL_ASSOC)) {
-			array_push($array2,$row['id']);
-			
-		}
-		}
-		
-		if($range1=="greater_than"){
-		$sql3 = "SELECT *  FROM personalinfo WHERE `age` >  $age  ";
-		}else if($range1=="less_than"){
-		$sql3 = "SELECT *  FROM personalinfo WHERE `age` < $age ";	
-		}else if($range1=="equal"){
-		$sql3 = "SELECT *  FROM personalinfo WHERE `age` = $age ";		
-		}
-		if($is_query_run=mysql_query($sql3,$db)){
-		
-    
-   		while($row = mysql_fetch_array($is_query_run,MYSQL_ASSOC)) {
-			array_push($array3,$row['id']);
-			
-		}
-		}
-		$sql4 = "SELECT *  FROM militaryinfo WHERE regiment = '".$regiment."' " ;
-		if($is_query_run=mysql_query($sql4,$db)){
-		
-    
-   		while($row = mysql_fetch_array($is_query_run,MYSQL_ASSOC)) {
-			array_push($array4,$row['id']);
-			
-		}
-		}
-		$result=array_intersect($array4,$array1,$array2,$array3);
-		if(empty($result)){
-			echo "No soldiers satisfy given conditions";
-		}else{
-		echo "Eligible Soldiers:";
-		echo '<table border=2px>';
-		echo '<th>Id</th>';
-			
-		foreach($result as $element){
-			echo '<tr>';
-	   	 	echo '<td>'.$element.'</td>';
-		}
-		}
-		
-}
-}
-?>	
-  
+
 
