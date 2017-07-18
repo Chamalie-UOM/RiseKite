@@ -6,7 +6,7 @@
 </head>
 <body>
 <header>
-<h1 align= "center" > Inventroy Management System <img src ="../hrPHP/armyCrest.svg" alt="army crest" align="middle"></h1>
+<h1 align= "center" > Inventory Management System <img src ="../hrPHP/armyCrest.svg" alt="army crest" align="middle"></h1>
 <logout><a name="logout" href="UI_LOGIN.php">Logout</a></logout>
 </header>
 <br>

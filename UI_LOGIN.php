@@ -26,10 +26,8 @@
         </div>
     </form> 
     </body>
-
 	<br><br><br><br>
 	<footer><font color="aliceblue">&copy; RiseKite2017</font></footer>
-
 </html>
 
 <?php
@@ -41,13 +39,11 @@ if ((isset($_POST["username"])) && (isset($_POST["password"]))){
 	$username="root";
 	$password="chul@P292";
 	$conn = mysql_connect($serverName,$username,$password) or die($conn_error);
-
 	@mysql_select_db('armydb') or die($conn_error);
 	
 	if (!get_magic_quotes_gpc()){
 		
 		$new_username = addslashes($_POST["username"]);
-
         $new_password1 = addslashes($_POST["password"]);
 	}
 	else{
@@ -59,7 +55,6 @@ if ((isset($_POST["username"])) && (isset($_POST["password"]))){
 	$new_password = md5($new_password1);
 	session_start();
 	$_SESSION['user']=$new_username;
-
 	$query="SELECT * FROM users WHERE User_Name='".$new_username."'";
 	if ($is_query_run=mysql_query($query,$conn)){
 		while($row=mysql_fetch_array($is_query_run,MYSQL_ASSOC)){
@@ -75,9 +70,7 @@ if ((isset($_POST["username"])) && (isset($_POST["password"]))){
 				}
 				else{
 					$_SESSION['UserType'] = "inventory_manager";
-
 					header("location: inventoryUI.php");
-
 					}
 
             }

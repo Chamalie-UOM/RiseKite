@@ -12,7 +12,6 @@
 <fieldset>
 <legend><font size ="5"> Menu</font></legend>
 <br>
-
 <button type="button" class ="button" onclick="location.href='../hrPHP/hrUI.html'"> Human Resource Management </button> <br><br>
 <button type="button" class ="button" onclick = "location.href='../PHP/FinalGeneralSearch.php'"> General Search </button><br><br>
 <button type="button" class ="button" onclick = "location.href ='UI_MAIN.php'"> Instant Messaging </button> <br><br>

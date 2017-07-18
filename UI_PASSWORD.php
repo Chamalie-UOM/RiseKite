@@ -25,7 +25,7 @@
     <input type="password" name="password2"/><br>
     </p>
 	<p>
-	<input type="button" value= "Back" name = "button1" onclick="window.location.href='UI_LEVEL1.php'"/>
+	<input type="button" value= "Back" name = "button1" onclick="window.location.href='select_pass.php'"/>
 	<input type="submit" value="Save Changes" />
     </p>
 	</fieldset>
@@ -48,26 +48,20 @@ if ((isset($_POST['username'])) && (isset($_POST['password1'])) && (isset($_POST
 	//echo "$user<br>";
 	//echo "$pass1<br>";
 	//echo "$pass2";
-
 	$pass=md5($pass1);
 
 	session_start();
-
 	$conn_error = "could not connect";
 
 	$serverName = "localhost";
 	$username="root";
 	$password="chul@P292";
 	$conn = mysql_connect($serverName,$username,$password) or die($conn_error);
-
 	@mysql_select_db('armydb') or die($conn_error);
-
 	
 	echo "<br>";
 	//echo "connected<br>";
 	$result = mysql_query("SELECT User_Name FROM users WHERE User_Name='".$user."'");
-
-
 		if((mysql_num_rows($result) == 0)) {
 			echo '<script language="javascript">';
 			echo 'alert("Invalid User")';  //showing an alert box.
