@@ -20,7 +20,7 @@ while($row = mysqli_fetch_array($record1)){
 ?>
 <head>
   <meta charset="UTF-8">
-  <title>Sign Up</title>
+  <title>Update POL Information</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
@@ -43,7 +43,7 @@ while($row = mysqli_fetch_array($record1)){
 
 <form action="updatepol.php" method="post">
       
-        <h1>Edit/Update Petroleum,Oil & Lubricant Information</h1>
+        <h1>Update Petroleum,Oil & Lubricant Information</h1>
         
         <fieldset>
           

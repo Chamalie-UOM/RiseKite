@@ -1,4 +1,6 @@
-<head><link rel="stylesheet" type="text/css" href="hrnew.css"></head>
+
+<head><link rel="stylesheet" type="text/css" href="../hr/styleshr.css"></head>
+
 <body>
 <header><h1 align= "center" > Human Resources Management <img src ="armyCrest.svg" alt="army crest" align="middle"></h1></header><br><br>
 <font size='5'>Modify Soldier Entry</font><br><br>
@@ -9,7 +11,9 @@ if(!empty($_POST['SoldierId'])){
 	$id =$_POST['SoldierId'];
 	$check="SELECT id FROM personalinfo WHERE id='$id'";
 	$query=mysqli_query($link,$check);
-	if(!empty($query)){
+
+	if(!mysqli_num_rows($query)==0){
+
 	$sql = "SELECT * FROM personalInfo WHERE id='$id'";
 	$record1=mysqli_query($link,$sql);
 	$edu ="SELECT * FROM edQualifications WHERE id='$id'";
@@ -32,6 +36,9 @@ if(!empty($_POST['SoldierId'])){
 	while($row2 = mysqli_fetch_array($record2)){
 		$olResults = $row2['olResults'];
         $alResults = $row2['alResults'];
+
+		$engFluency = $row2['engFluency'];
+
 	}
 	while($row3 = mysqli_fetch_array($record3)){
 		$DOE = $row3['DOE'];
@@ -60,11 +67,18 @@ Telephone Number: <input type="text" name="tpNum" value="<?=$tpNum?>"><br>
 <legend>Education Qualifications</legend>
 O/L Results: <input type="text" name="olResults" value="<?=$olResults?>"><br>
 A/L Results: <input type="text" name="alResults" value="<?=$alResults?>"><br>
+
+English Fluency: <select name="engFluency">
+	<option value="Professional proficiency">Professional proficiency</option>
+    <option value="General proficiency">General proficiency</option></select><br>
+
 </fieldset><br>
 <fieldset>
 <legend>Military Infomation</legend>
 Date of Enlistment: <input type="text" name="DOE" value="<?=$DOE?>"><br>
-Regiment Name: <input type="text" name="regiment" value="<?=$regiment?>"><br>
+
+Regiment Name:  <input type="text" name="regiment" value="<?=$regiment?>"><br>
+
 Battalion Number: <input type="number" name="batNum" value="<?=$batNum?>" min="1" max="23"><br>
 Rank: <input type="number" name="rank" value="<?=$rank?>" min="1"><br>
 </fieldset><br>

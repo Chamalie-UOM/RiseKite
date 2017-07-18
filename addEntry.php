@@ -1,9 +1,15 @@
-<head><link rel="stylesheet" type="text/css" href="hrstyle.css"></head>
+
+<head><link rel="stylesheet" type="text/css" href="../hr/styleshr.css"></head>
 <body>
 <header>
 <h1 align= "center" > Human Resources Management <img src ="armyCrest.svg" alt="army crest" align="middle"></h1>
+<logout><a href="../SMS/UI_LOGIN.php">Logout<logout></a>
 </header></body>
 <?php include 'dbCon.php';
+//validate date
+
+//validate length
+
 function length($inputtxt,$length)  
 {     
    $userInput = $inputtxt;    
@@ -15,23 +21,20 @@ function length($inputtxt,$length)
       {                
         return false;     
       }    
+
+}
+//validate data
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
 }  
-/*function allLetter($inputtxt)  
-  {  
-    $letters = /^[A-Za-z]+$/;  
-   if(inputtxt.value.match(letters))  
-     {  
-      return true;  
-     }  
-   else  
-     {    
-     return false;  
-     }  
-  }  </script> */
 
 $errors="";
 // create a variable
-if(empty($_POST['id'])){
+if(empty(test_input($_POST['id']))){
+
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
@@ -42,140 +45,187 @@ if(empty($_POST['id'])){
 	echo "<script> alert('error-please enter a valid ID')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }
-if(empty($_POST['firstName'])){
+
+if(empty(test_input($_POST['firstName']))){
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
-}else if(ctype_alpha($_POST['firstName'])== false ){
+}else if(ctype_alpha(test_input($_POST['firstName']))== false ){
+
 	$errors="first name should only contain letters";
 	echo "<script> alert('error-first name should only contain letters')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$first_name=$_POST['firstName'];
+
+$first_name=test_input($_POST['firstName']);
 }
-if(empty($_POST['lastName'])){
+if(empty(test_input($_POST['lastName']))){
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
-}else if(ctype_alpha($_POST['lastName'])== false ){
+}else if(ctype_alpha(test_input($_POST['lastName']))== false ){
+
 	$errors="Last name should only contain letters";
 	echo "<script> alert('error-Last name should only contain letters')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$last_name=$_POST['lastName'];
+
+$last_name=test_input($_POST['lastName']);
 }
-if(empty($_POST['DOB'])){
+if(empty(test_input($_POST['DOB']))){
+	$errors="error-complete all fields";
+	echo "<script> alert('error-complete all fields')</script>";
+	echo "<script> window.open('addSoldier.php','_self');</script>";
+//}else if(){
+	//$errors="error-enter a valid date.";
+	//echo "<script> alert('error-Enter a valid date for date of birth.')</script>";
+	//echo "<script> window.open('addSoldier.php','_self');</script>";
+}else{
+$DOB=test_input($_POST['DOB']);
+}
+if(test_input(empty($_POST['gender']))){
+
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$DOB=$_POST['DOB'];
+
+$gender=test_input($_POST['gender']);
 }
-if(empty($_POST['gender'])){
+if(empty(test_input($_POST['age']))){
+
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$gender=$_POST['gender'];
+
+$age=test_input($_POST['age']);
 }
-if(empty($_POST['age'])){
-	$errors="error-complete all fields";
-	echo "<script> alert('error-complete all fields')</script>";
-	echo "<script> window.open('addSoldier.php','_self');</script>";
-}else{
-$age=$_POST['age'];
-}
-if(empty($_POST['marital'])){
+if(empty(test_input($_POST['marital']))){
+
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self'); </script>";
 }else{
-$marital=$_POST['marital'];
+
+$marital=test_input($_POST['marital']);
 }
-if(empty($_POST['height'])){
+if(empty(test_input($_POST['height']))){
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
-}else if(ctype_digit($_POST['height'])== false ){
+}else if(ctype_digit(test_input($_POST['height']))== false ){
+
 	$errors="please enter a valid height";
 	echo "<script> alert('Error-please enter a valid height')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$height=$_POST['height'];
+
+$height=test_input($_POST['height']);
 }
-if(empty($_POST['weight'])){
+if(empty(test_input($_POST['weight']))){
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
-}else if(ctype_digit($_POST['weight'])== false ){
+}else if(ctype_digit(test_input($_POST['weight']))== false ){
+
 	$errors="please enter a valid weight";
 	echo "<script> alert('Error-please enter a valid weight')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$weight=$_POST['weight'];
+
+$weight=test_input($_POST['weight']);
 }
-if(empty($_POST['shoe'])){
+if(empty(test_input($_POST['shoe']))){
+
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$shoe=$_POST['shoe'];
+
+$shoe=test_input($_POST['shoe']);
 }
-if(empty($_POST['tpNum'])){
+if(test_input(empty($_POST['tpNum']))){
+
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else if(length($_POST['tpNum'],'11')){
-	$tpNum=$_POST['tpNum'];
+
+	$tpNum=($_POST['tpNum']);
 }else{
 	$errors="error-invalid id";
-	echo "<script> alert('error-please enter a valid telephone number starting with 94')</script>";
+	echo "<script> alert('error-Please enter a valid telephone number starting with 94')</script>";
+
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }
 
 //edQualifications
-if(empty($_POST['olResults'])){
+
+if(empty(test_input($_POST['olResults']))){
+
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$ol=$_POST['olResults'];
+
+$ol=test_input($_POST['olResults']);
 }
-if(empty($_POST['alResults'])){
+if(empty(test_input($_POST['alResults']))){
+
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$al=$_POST['alResults'];
+
+$al=test_input($_POST['alResults']);
+}
+if(empty(test_input($_POST['engFluency']))){
+	$errors="error-complete all fields";
+	echo "<script> alert('error-complete all fields')</script>";
+	echo "<script> window.open('modifySoldier.html','_self'); </script>";
+}else{
+$engFluency=test_input($_POST['engFluency']);
 }
 //militaryInfo
-if(empty($_POST['DOE'])){
+if(empty(test_input($_POST['DOE']))){
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
+//}else if(){
+	//$errors="error-enter a valid date.";
+	//echo "<script> alert('error-Enter a valid date for date of enlistment.')</script>";
+	//echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$DOE=$_POST['DOE'];
+$DOE=test_input($_POST['DOE']);
 }
-if(empty($_POST['regiment'])){
+if(empty(test_input($_POST['regiment']))){
+
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$regiment=$_POST['regiment'];
+
+$regiment=test_input($_POST['regiment']);
 }
-if(empty($_POST['batNum'])){
+if(empty(test_input($_POST['batNum']))){
+
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$batNum=$_POST['batNum'];
+
+$batNum=test_input($_POST['batNum']);
 }
-if(empty($_POST['rank'])){
+if(empty(test_input($_POST['rank']))){
+
 	$errors="error-complete all fields";
 	echo "<script> alert('error-complete all fields')</script>";
 	echo "<script> window.open('addSoldier.php','_self');</script>";
 }else{
-$rank=$_POST['rank'];
+
+$rank=test_input($_POST['rank']);
+
 }
 
 if(empty($errors)){
@@ -183,7 +233,9 @@ if(empty($errors)){
 mysqli_query($link,"INSERT INTO personalInfo(id,firstName,lastName,DOB,gender,age,marital,height,weight,shoe,tpNum)
 				VALUES('$id','$first_name','$last_name','$DOB','$gender','$age','$marital','$height','$weight','$shoe','$tpNum')");
 
-mysqli_query($link,"INSERT INTO edQualifications(id,olResults,alResults) VALUES('$id','$ol','$al')");
+
+mysqli_query($link,"INSERT INTO edQualifications(id,olResults,alResults,engFluency) VALUES('$id','$ol','$al','$engFluency')");
+
 
 mysqli_query($link,"INSERT INTO militaryInfo(id,DOE,regiment,batNum,rank) VALUES('$id','$DOE','$regiment','$batNum','$rank')");
 				

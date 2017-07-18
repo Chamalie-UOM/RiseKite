@@ -1,4 +1,4 @@
-<?php include 'dbTransportconnect.php';
+<?php include 'dbQstoreconnect.php';
 
 
 if (isset($_POST['registration_number'])&&isset($_POST['date_of_purchase'])&&isset($_POST['current_location'])&&isset($_POST['net_carrying_value'])&&isset($_POST['vehicle_type'])&&isset($_POST['user_type'])&&isset($_POST['fuel_type'])&&isset($_POST['mileage'])&&isset($_POST['transmission'])){
