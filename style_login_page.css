@@ -1,0 +1,29 @@
+h1{
+    font-size: 80px;
+    font color: darkolivegreen;
+    background-color: khaki;
+}
+.myClass{
+    background-color: khaki;
+}
+body{
+    background-color: darkkhaki;
+}
+fieldset{
+    margin-right: 300px;
+    margin-left: 300px;
+}
+
+.myClass2 fieldset{
+    margin-top: 50px;
+}
+img{
+   width : 250px;
+   height : 250px;
+}
+input[type=submit]{
+	margin-left:75px;
+	width: 175px;
+}
+
+	

@@ -51,19 +51,27 @@ while($row = mysqli_fetch_array($record1)){
           
           <input type="hidden" id="item_code" name="item_code" value="<?=$item_code;?>">
             
-            <label>Units in stock:</label>
-          <input type="text" id="units_in_stock" name="units_in_stock" value="<?=$units_in_stock;?>">
+
+                    <label>Units in stock:</label>
+  
+
+          <input type="text" id="units_in_stock" name="units_in_stock" min="0" max="99999" value="<?=$units_in_stock;?>">
+
           
        
           
           <label>Units in use:</label>
-          <input type="text" id="units_in_use" name="units_in_use" value="<?=$units_in_use;?>">
+
+         
+
+          <input type="text" id="units_in_use" name="units_in_use" min="0" max="99999" value="<?=$units_in_use;?>">
           
             <label>Buffer Level:</label>
-          <input type="text" id="buffer_level" name="buffer_level" value="<?=$buffer_level;?>">
+          <input type="text" id="buffer_level" name="buffer_level" min="0" max="99999" value="<?=$buffer_level;?>">
           
             <label>Description:</label>
-          <input type="text" id="description" name="description" value="<?=$description;?>">
+          <input type="text" id="description" name="description" maxlength="100" value="<?=$description;?>">
+
           
        
         </fieldset>

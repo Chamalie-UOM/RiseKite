@@ -2,7 +2,10 @@
 include 'dbQstoreconnect.php';
 
 
-if (isset($_POST['item_code'])&&isset($_POST['units_in_stock'])&&isset($_POST['units_in_use'])&&isset($_POST['buffer_level'])&&isset($_POST['description'])){
+
+
+if (!empty($_POST['item_code'])&&!empty($_POST['units_in_stock'])&&!empty($_POST['units_in_use'])&&!empty($_POST['buffer_level'])&&!empty($_POST['description'])){
+
     
      $item_code=$_POST['item_code'];
 
@@ -14,11 +17,33 @@ if (isset($_POST['item_code'])&&isset($_POST['units_in_stock'])&&isset($_POST['u
     
     $description=$_POST['description'];
     
+
 }
     
-    mysqli_query($db,"UPDATE ammunation");
+   
 
 
-mysqli_query($db,"UPDATE ammunation SET units_in_stock='$units_in_stock',units_in_use='$units_in_use',buffer_level='$buffer_level',description='$description' WHERE item_code='$item_code' ");
+    if(strlen($item_code)<'4'){
+    echo "<script>alert('Item code is invalid')</script>";
+    echo "<script>window.open('modifyammunation.php','_self')</script>";
+    
+    }
+    else {
+       mysqli_query($db,"UPDATE ammunation");
+
+        mysqli_query($db,"UPDATE ammunation SET units_in_stock='$units_in_stock',units_in_use='$units_in_use',buffer_level='$buffer_level',description='$description' WHERE item_code='$item_code' ");
+    
+        echo "<script>window.open('indexinv.html','_self')</script>";
+     
+    }
+    
+}
+else {
+    
+    echo "<script>alert('You can't leave a field empty')</script>";
+    echo "<script>window.open('modifyammunation.php','_self')</script>";
+}
+    
+    
 
 ?>

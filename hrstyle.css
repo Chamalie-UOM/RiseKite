@@ -1,0 +1,34 @@
+body { background-color : darkkhaki;}
+.button {
+	
+	text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+	margin :auto;
+	display: block;
+	vertical-align :middle;
+}
+h1 {color:darkolivegreen;}
+
+img{ 
+width : 200px;
+height : 150px;
+
+}
+header{ background-color : darkkhaki;}
+label{
+	width:180px;
+	clear:left;
+	text-align:left;
+	padding-right: 260px;
+}
+input,label{
+	float: left;
+}
+select{
+	position: relative;
+}
+input[type="radio"]{
+	margin : 0 10px 0 10px
+}
