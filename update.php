@@ -1,8 +1,10 @@
+
 <head><link rel="stylesheet" type="text/css" href="../hr/styleshr.css"></head>
 <body>
 <header>
 <h1 align= "center" > Human Resources Management <img src ="armyCrest.svg" alt="army crest" align="middle"></h1>
 <logout><a href="../SMS/UI_LOGIN.php">Logout</a><logout>
+
 </header></body>
 <?php
 include "dbcon.php";
@@ -10,7 +12,9 @@ if(isset($_POST['Submit'])){
 	$id =$_POST['ID'];
 	
 //personal info	
+
 /*if(isset($_POST['firstName'])){
+
 $first_name=$_POST['firstName'];
 }
 if(isset($_POST['lastName'])){
@@ -59,6 +63,7 @@ $batNum=$_POST['batNum'];
 }
 if(isset($_POST['rank'])){
 $rank=$_POST['rank'];
+
 }*/
 
 function length($inputtxt,$length)  
@@ -281,3 +286,4 @@ echo "<a href='modifySoldier.html'> Go Back</a>" ;
 }
 
 ?>
+

@@ -16,26 +16,13 @@ width : 200px;
 height : 150px;
 
 }
-
-header{ background-color : darkkhaki;}
-
+header{ background-color : khaki;}
 label{
 	width:180px;
 	clear:left;
 	text-align:left;
 	padding-right: 260px;
 }
-input,label{
-	float: left;
+input{
+	float: center-left;
 }
-
-select{
-	position: relative;
-}
-input[type="radio"]{
-	margin : 0 10px 0 10px
-}
-login{
-	margin-left: 1285px
-}
-
