@@ -11,16 +11,12 @@ body { background-color : darkkhaki;}
 }
 h1 {color:darkolivegreen;}
 
-
 img{ 
 width : 200px;
 height : 150px;
 
 }
-
-
 header{ background-color : darkkhaki;}
-
 label{
 	width:180px;
 	clear:left;
@@ -30,7 +26,6 @@ label{
 input,label{
 	float: left;
 }
-
 select{
 	position: relative;
 }
@@ -40,5 +35,3 @@ input[type="radio"]{
 login{
 	margin-left: 1285px
 }
-
-
