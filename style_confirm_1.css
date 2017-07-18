@@ -1,0 +1,44 @@
+body{
+    background-color: darkkhaki;
+}
+.myfirst3{
+    background-color: khaki;
+    text-align: center;
+}
+img{
+    width: 175px;
+    height: 175px;
+}
+h1{
+    font-size: 40px;
+}
+label{
+    margin-left: 300px;
+    font-size: 22px;
+}
+input1{
+    margin-left: 600px;
+    width: 200px;
+}
+input{
+    height: 40px;
+    font-size: 16px;
+}
+input1{
+    margin-left: 600px;
+}
+button2{
+	margin-left:1295px;
+}
+fieldset{
+	margin-left: 200px;
+	margin-right: 200px;
+}
+input[type=button]{
+	margin-left:400px;
+	width: 150px;
+}
+input[type=submit]{
+	margin-left:100px;
+	width: 150px;
+}

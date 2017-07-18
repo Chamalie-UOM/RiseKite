@@ -1,0 +1,30 @@
+body{
+    align-items: flex-start;
+}
+fontx{
+    font-size: 40;
+    font color: darkolivegreen;
+}
+.myClass{
+    background-color: beige;
+    height: 200px;
+}
+body{
+    background-color: darkseagreen;
+}
+fieldset{
+    margin-right: 300px;
+    margin-left: 300px;
+}
+
+.myClass img{
+    float: right;
+    margin-right: 200px;
+    
+}
+.myClass h1{
+    margin-left: 300px;
+}
+.myClass2 fieldset{
+    margin-top: 50px;
+}

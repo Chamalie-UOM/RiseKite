@@ -1,0 +1,60 @@
+body{
+    background-color:darkkhaki;
+}
+.myfirst1{
+    background-color: khaki;
+    text-align: center;
+}
+second_one{
+    font-size: 22px;
+}
+label{
+    display: inline;
+    align-content: center;
+}
+input[type=number]{
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+}
+input[type=button]{
+    margin-left: 100px;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+}
+input[type=submit]{
+    margin-left: 100px;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+}
+p{
+    display:flex;
+}
+select{
+    width: 300px;
+    height: 50px;
+}
+
+table{
+    background-color:khaki;
+    margin-left: 250px;
+	font-size:16px;
+}
+h1{
+    font-size: 40px;
+}
+img{
+    width: 175px;
+    height: 175px;
+}
+option{
+    font-size: 16px;
+}
+s1{
+	margin-left:50px;
+}
+button2{
+	margin-left:1295px;
+}

@@ -1,0 +1,28 @@
+body { background-color : darkkhaki;}
+.button {
+	
+	text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+	margin :auto;
+	display: block;
+	vertical-align :middle;
+}
+h1 {color:darkolivegreen;}
+
+img{ 
+width : 200px;
+height : 150px;
+
+}
+header{ background-color : khaki;}
+label{
+	width:180px;
+	clear:left;
+	text-align:left;
+	padding-right: 260px;
+}
+input{
+	float: center-left;
+}
