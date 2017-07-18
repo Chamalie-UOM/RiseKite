@@ -28,8 +28,8 @@
   <option value="Sri Lanka Engineers">Sri Lanka Engineers</option>
 </select>
 <p2>
-<label for="Battalion Group"><second>Select the battalion number : </second></label>
-<input type="number" name="batNumber" min="1"></p2>
+<label for="Battalion Group"><second>Select the battalion number : </second></label
+  <input type="number" name="batNumber" min="1" max="23"></p>
 </p>
 <p><br>
     <p1><label for="Message">Create the message here</label></p1>
@@ -85,7 +85,7 @@ if (isset($_GET["group"])&&($_GET["message"] != '')){
 	$username="root";
 	$password="chul@P292";
 	$conn = mysql_connect($serverName,$username,$password) or die($conn_error);
-	@mysql_select_db('messagesdb') or die($conn_error);
+	@mysql_select_db('armydb') or die($conn_error);
 	
 	if ($new_bat==NULL){
 		$sql = "INSERT INTO sms(Soldier_Group,Battalion_Number,Message,Date,Time,State) VALUES ('$new_group',0,'$new_message','$date','$time','$state')";
@@ -153,11 +153,14 @@ if (isset($_GET["group"])&&($_GET["message"] != '')){
     // Compose
     $mail->Subject = "Requesting confirmation";     // Subject
 
-    $mail->SetFrom("chulanikarandana@gmail.com","Chulani@UoM");
+    $mail->SetFrom("chulanikarandana@gmail.com","Sri lanka Army- Messaging Service");
 
     // Send To
-    $mail->AddAddress( "chulanilakmalikarandana@gmail.com" ); // Where to send it
+    $mail->AddAddress( "chama.ashali@gmail.com" ); // Where to send it
     var_dump( $mail->send() );      // Send!
+	echo '<script language="javascript">';
+	echo 'alert("Message successfully sent for approval")';  //not showing an alert box.
+	echo '</script>';
     
     
 }

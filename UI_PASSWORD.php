@@ -49,42 +49,65 @@ if ((isset($_POST['username'])) && (isset($_POST['password1'])) && (isset($_POST
 	//echo "$pass1<br>";
 	//echo "$pass2";
 
-	
+	$pass=md5($pass1);
+
+	session_start();
+
 	$conn_error = "could not connect";
 
 	$serverName = "localhost";
 	$username="root";
 	$password="chul@P292";
 	$conn = mysql_connect($serverName,$username,$password) or die($conn_error);
-	@mysql_select_db('messagesdb') or die($conn_error);
+
+	@mysql_select_db('armydb') or die($conn_error);
+
 	
 	echo "<br>";
 	//echo "connected<br>";
 	$result = mysql_query("SELECT User_Name FROM users WHERE User_Name='".$user."'");
-		if(mysql_num_rows($result) == 0) {
-			echo "Invalid User";
+
+
+		if((mysql_num_rows($result) == 0)) {
+			echo '<script language="javascript">';
+			echo 'alert("Invalid User")';  //showing an alert box.
+			echo '</script>';
+			//echo "<font color=\"red\" text-align='center'>Invalid User</font>";
 		}
-else{		
+	else if($user==$_SESSION['user']){		
 	
 	if ("$pass1" == "$pass2"){
-		$sql = "UPDATE users SET Password='$pass1' WHERE User_Name='".$user."'";
+		$sql = "UPDATE users SET Password='$pass' WHERE User_Name='".$user."'";
         if ($is_query_run1=mysql_query($sql,$conn)){
-            echo "Password updated successfully";
+			echo '<script language="javascript">';
+			echo 'alert("Password updated successfully")';  //showing an alert box.
+			echo '</script>';
             
         }
         else{
-            echo "Invalid User";
+            echo "<font color=\"red\">Invalid User</font>";  ;
         }
 	}
 	else{
-		echo "Re enter the password";
+		echo '<script language="javascript">';
+		echo 'alert("Password Invalid")';  //showing an alert box.
+		echo '</script>';
+		//echo "Re enter the password";
 	}
 	
+}
+else{
+	echo '<script language="javascript">';
+	echo 'alert("Invalid User")';  //showing an alert box.
+	echo '</script>';
 }
 }
 
 else{
-	echo "Please fill all the fields";
+	//echo '<script language="javascript">';
+	//echo 'alert("Please fill all the fields")';  //showing an alert box.
+	//echo '</script>';
+	//echo "Please fill all the fields";
 }
 
 
