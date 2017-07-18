@@ -1,4 +1,5 @@
 
+
 <head><link rel="stylesheet" type="text/css" href="../hr/styleshr.css"></head>
 <body>
 <header>
@@ -229,12 +230,15 @@ $rank=test_input($_POST['rank']);
 }
 
 if(empty($errors)){
+
 //Execute the query 
 mysqli_query($link,"INSERT INTO personalInfo(id,firstName,lastName,DOB,gender,age,marital,height,weight,shoe,tpNum)
 				VALUES('$id','$first_name','$last_name','$DOB','$gender','$age','$marital','$height','$weight','$shoe','$tpNum')");
 
 
+
 mysqli_query($link,"INSERT INTO edQualifications(id,olResults,alResults,engFluency) VALUES('$id','$ol','$al','$engFluency')");
+
 
 
 mysqli_query($link,"INSERT INTO militaryInfo(id,DOE,regiment,batNum,rank) VALUES('$id','$DOE','$regiment','$batNum','$rank')");
@@ -244,8 +248,10 @@ if(mysqli_affected_rows($link) > 0){
 	echo "<a href='addSoldier.php'> Go Back</a>" ;
 }else{
 	echo "<h1>Soldier not added.</h1>".$link->error;
+
 }
 }
 
 				
+
 ?>

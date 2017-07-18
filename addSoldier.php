@@ -1,3 +1,4 @@
+
 <?php 
  //errors
  /*$idErr = $firstNameErr = $lastNameErr = $DOBErr = $genderErr = "";
@@ -135,15 +136,18 @@ return false;
 	<label> Shoe size: </label> <input type="number" name="shoe" min="1" max="20"><br>
 	<label> Telephone Number<br>(start with 94 instead of 0):  </label> <input type="text" name="tpNum"><br>
 
+
     </fieldset><br>
 	<fieldset>
 	<legend> <font size='5'> Educational Qualifications</font></legend>
 	<label> O/L Results: </label> <textarea name= "olResults" rows ="1" cols ="100" > </textarea> <br> <br>
     <label> A/L Results: </label> <textarea name= "alResults" rows="1" cols="100" ></textarea> <br><br>
 
+
 	<label> English Fluency: </label> <select name="engFluency">
 	<option value="Professional proficiency">Professional proficiency</option>
     <option value="General proficiency">General proficiency</option></select><br><br>
+
 
 	</fieldset><br>
 	<fieldset>
@@ -168,6 +172,7 @@ return false;
 
 	</fieldset><br>
   <input type="submit" value="Submit" >
+
 </form>
 
  </body>
