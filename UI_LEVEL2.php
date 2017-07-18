@@ -13,9 +13,9 @@
 <legend><font size ="5"> Menu</font></legend>
 <br>
 <button type="button" class ="button" onclick="location.href='../hrPHP/hrUI.html'"> Human Resource Management </button> <br><br>
-<button type="button" class ="button" onclick = "location.href='NormalSearch.html'"> General Search </button><br><br>
+<button type="button" class ="button" onclick = "location.href='../PHP/FinalGeneralSearch.php'"> General Search </button><br><br>
 <button type="button" class ="button" onclick = "location.href ='UI_MAIN.php'"> Instant Messaging </button> <br><br>
-<button type="button" class ="button" onclick = "location.href ='inv.html'"> Lookup Inventory </button> <br><br>
+<button type="button" class ="button" onclick = "location.href ='../level12_lookuplist.html'"> Lookup Inventory </button> <br><br>
 <button type="button" class ="button" onclick ="window.location.href='UI_PASSWORD.php'"> Change password </button> <br><br>
 </fieldset>
 </form>

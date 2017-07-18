@@ -29,7 +29,7 @@
 </select>
 <p2>
 <label for="Battalion Group"><second>Select the battalion number : </second></label>
-<input type="number" name="batNumber" min="1"></p2>
+<input type="number" name="batNumber" min="1" max="23"></p2>
 </p>
 <p><br>
     <p1><label for="Message">Create the message here</label></p1>
@@ -153,11 +153,14 @@ if (isset($_GET["group"])&&($_GET["message"] != '')){
     // Compose
     $mail->Subject = "Requesting confirmation";     // Subject
 
-    $mail->SetFrom("chulanikarandana@gmail.com","Chulani@UoM");
+    $mail->SetFrom("chulanikarandana@gmail.com","Sri lanka Army- Messaging Service");
 
     // Send To
-    $mail->AddAddress( "chulanilakmalikarandana@gmail.com" ); // Where to send it
+    $mail->AddAddress( "chama.ashali@gmail.com" ); // Where to send it
     var_dump( $mail->send() );      // Send!
+	echo '<script language="javascript">';
+	echo 'alert("Message successfully sent for approval")';  //not showing an alert box.
+	echo '</script>';
     
     
 }

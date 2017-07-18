@@ -6,8 +6,8 @@
 * Simply substitute your own username, password and phone number
 * below, and run the test code:
 */
-$username = 'chulanirisekite';
-$password = 'chulani@risekite';
+$username = 'chulanilakmali';
+$password = 'chulanilakmali';
 /*
 * Your phone number, including country code, i.e. +44123123123 in this case:
 */
@@ -102,10 +102,10 @@ $transient_errors = array(
 $post_body = seven_bit_sms( $username, $password, $seven_bit_msg, $msisdn );
 $result = send_message( $post_body, $url );
 if( $result['success'] ) {
-  print_ln( formatted_server_response( $result ) );
+  //print_ln( formatted_server_response( $result ) );
 }
 else {
-  print_ln( formatted_server_response( $result ) );
+  //print_ln( formatted_server_response( $result ) );
 }
 
 
@@ -138,6 +138,6 @@ else {
 * If you don't see this, and no errors appeared to screen, you should
 * check your Web server's error logs for error output:
 */
-print_ln("Script ran to completion");
+//print_ln("Script ran to completion");
 
 ?>

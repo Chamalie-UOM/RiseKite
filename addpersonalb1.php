@@ -23,25 +23,26 @@
     </head>
     <body>
 
-      <form action="AddAmmunation.php" method="post">
+      <form action="addpersonalb1.php" method="post">
       
-        <h1>Add new Ammunation information</h1>
+        <h1>Add new personal belonging entry</h1>
         
         <fieldset>
-          <label>Item code:</label>
-          <input type="text" id="item_code" name="item_code" maxlength="8">
+          
+          <label>Item Name:</label>
+          <input type="text" id="name" name="name">
             
+          
           <label>Units in stock:</label>
-          <input type="number" id="units_in_stock" name="units_in_stock" min="0" max="99999">
+          <input type="text" id="units_in_stock" name="units_in_stock">
             
           <label>Units in use:</label>
-          <input type="number" id="units_in_use" name="units_in_use" min="0" max="99999">
-            
-          <label>Buffer Level:</label>
-          <input type="number" id="buffer_level" name="buffer_level" min="0" max="99999">
-  
-          <label>Description:</label>
-          <textarea id="description" name="description" maxlength="100"></textarea>
+          <input type="text" id="units_in_use" name="units_in_use">
+          
+       
+          <label>Item description:</label>
+          
+          <textarea id="description" name="item_des"></textarea>
         </fieldset>
         
         <button type="submit">Add Entry</button>
@@ -50,9 +51,9 @@
     </body>
 </html>
   
+  
 <?php
-//include "AddAmmunation.php";
+include "AddPersonalb.php";
 
 ?>
   
-

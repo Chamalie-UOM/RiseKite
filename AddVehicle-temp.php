@@ -21,7 +21,10 @@ if (isset($_POST['registration_number'])&&isset($_POST['date_of_purchase'])&&iss
     
     $transmission=$_POST['transmission'];
    
-    
+    if($registration_number<0){
+    echo "<script>alert('Registration number is invalid')</script>";
+    echo "<script>window.open('addvehicle1.php','_self')</script>";
+}
     
     mysqli_query($db,"INSERT INTO vehicles(registration_number,date_of_purchase,current_location,net_carrying_value,vehicle_type,user_type,fuel_type,mileage,transmission)VALUES('$registration_number','$date_of_purchase','$current_location','$net_carrying_value','$vehicle_type','$user_type','$fuel_type','$mileage','$transmission')");
 }
